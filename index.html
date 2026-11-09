@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="Ça te dirait qu’on sorte ensemble ?">
+  <meta property="og:description" content="У меня к тебе один маленький вопрос 💌">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#fff3f5">
+  <title>У меня к тебе вопрос 💌</title>
+  <style>
+    :root{--ink:#432f3b;--muted:#8b697d;--rose:#ec688f;--rose-dark:#d74672;--pale:#fff0f4;--white:#fff;--shadow:0 24px 70px rgba(123,55,84,.16)}
+    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:22px 14px;background:radial-gradient(circle at 20% 15%,#ffe5ed 0,transparent 35%),radial-gradient(circle at 80% 85%,#eedcff 0,transparent 40%),#fff7f8;font-family:ui-rounded,system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);overflow-x:hidden}
+    .sparkle{position:fixed;pointer-events:none;font-size:26px;opacity:.5;animation:float 6s ease-in-out infinite}.s1{top:8%;left:10%}.s2{top:14%;right:13%;animation-delay:-2s}.s3{bottom:12%;left:13%;animation-delay:-4s}.s4{bottom:16%;right:10%;animation-delay:-1s}
+    @keyframes float{50%{transform:translateY(-16px) rotate(12deg)}}
+    .card{width:min(100%,470px);min-height:490px;position:relative;overflow:hidden;text-align:center;border:1px solid #fff;padding:36px 27px 30px;border-radius:30px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .sticker{font-size:61px;line-height:1.25;filter:drop-shadow(0 6px 9px #f5afc2);animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.07)}}
+    h1{font-size:clamp(27px,6vw,36px);letter-spacing:-1px;line-height:1.18;margin:20px 0 12px}p{color:var(--muted);line-height:1.55;margin:0 auto 22px;max-width:340px;font-size:15px}
+    .tag{display:inline-block;color:var(--rose-dark);background:#ffe9f0;border-radius:100px;padding:7px 13px;font-weight:700;font-size:12px;letter-spacing:.03em}
+    button,.choice{font:inherit;-webkit-tap-highlight-color:transparent}button{cursor:pointer;border:0}.primary{background:linear-gradient(135deg,#fa83a4,#e65083);color:white;border-radius:17px;padding:15px 26px;box-shadow:0 10px 22px #ee70973c;font-size:17px;font-weight:750;transition:transform .15s,box-shadow .15s}.primary:hover{transform:translateY(-2px);box-shadow:0 13px 28px #ee70975b}.primary:active{transform:scale(.97)}.ghost{border-radius:17px;padding:15px 25px;background:#f6eef2;color:#886879;font-size:17px;font-weight:650;transition:left .18s ease,top .18s ease,transform .15s}
+    .button-arena{position:relative;height:155px;margin-top:12px}.yes{position:absolute;top:34px;left:calc(50% - 138px);min-width:110px}.no{position:absolute;top:34px;left:calc(50% + 13px);min-width:110px}
+    .screen{display:none;animation:appear .35s ease}.screen.active{display:block}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .form-block{text-align:left;margin:18px 0}label{display:block;font-size:13px;font-weight:750;margin-bottom:8px;color:#6e4e61}input{width:100%;padding:14px 15px;border:1.5px solid #f3dce5;border-radius:14px;background:white;color:var(--ink);font-size:16px;outline:none;color-scheme:light}input:focus{border-color:var(--rose)}
+    .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:19px 0 21px}.choice{display:flex;align-items:center;gap:8px;padding:13px 10px;text-align:left;border-radius:14px;background:#fff7f9;border:1.5px solid #f7e6ed;color:#66495a;font-size:13px;font-weight:650;cursor:pointer;min-height:61px}.choice span{font-size:24px;flex:none}.choice.selected{background:#ffedf3;border-color:var(--rose);box-shadow:0 0 0 2px #f8b7ce44}.full{width:100%;margin-top:4px}.back{background:none;color:#987888;margin-top:15px;font-size:13px;text-decoration:underline;text-underline-offset:3px}.summary{background:#fff3f6;border:1px solid #f9dbe5;border-radius:19px;padding:19px 15px;text-align:left;line-height:1.85;font-weight:650;margin:18px 0 20px}.notice{font-size:12px;margin-top:12px;color:#a17d90}.actions{display:grid;gap:10px}.secondary{padding:13px;border-radius:14px;color:#a1496d;background:#ffebf2;font-weight:700}.error{font-size:13px;color:#c12d62;min-height:19px;margin:6px 0}
+    @media(max-width:390px){.card{padding:29px 19px 23px}.choices{gap:7px}.choice{font-size:12px;padding:10px 8px}.yes{left:calc(50% - 128px)}.no{left:calc(50% + 8px)}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  
+    /* Optimized for iPhone Safari and Telegram in-app browser */
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+    body{min-height:100vh;min-height:100dvh;padding:max(16px,env(safe-area-inset-top)) max(13px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(13px,env(safe-area-inset-left));overscroll-behavior-y:contain}
+    .card{min-height:0;padding:30px 22px 25px}
+    .sticker{font-family:Apple Color Emoji,Segoe UI Emoji,sans-serif}
+    button{touch-action:manipulation;user-select:none;-webkit-user-select:none}
+    .primary,.ghost{min-height:54px}
+    input{min-height:54px;appearance:none;-webkit-appearance:none;display:block;width:100%}
+    input[type=date],input[type=time]{min-width:0;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px}
+    .button-arena{height:170px;touch-action:manipulation}
+    .choice{min-height:70px;font-size:14px;line-height:1.35}
+    .choice span{font-family:Apple Color Emoji,Segoe UI Emoji,sans-serif}
+    .notice{font-size:12px;line-height:1.55}
+    .summary{white-space:pre-line;overflow-wrap:anywhere}
+    @media(max-width:430px){.card{border-radius:25px;padding:26px 18px 22px}.choices{grid-template-columns:1fr;gap:9px}.choice{min-height:56px;padding:12px 14px;font-size:15px}.choice span{font-size:23px}h1{font-size:clamp(26px,7.5vw,33px)}.sticker{font-size:52px}.yes{left:calc(50% - 128px)}.no{left:calc(50% + 8px)}}
+    @media(max-width:350px){.card{padding:23px 14px}.yes{left:calc(50% - 115px);min-width:100px}.no{left:calc(50% + 5px);min-width:100px}.primary,.ghost{padding-inline:14px}}
+    @media(hover:none){.primary:hover{transform:none;box-shadow:0 10px 22px #ee70973c}}
+  </style>
+</head>
+<body>
+  <div class="sparkle s1">💗</div><div class="sparkle s2">✨</div><div class="sparkle s3">🌷</div><div class="sparkle s4">💕</div>
+  <main class="card">
+    <section id="hello" class="screen active" aria-labelledby="headline">
+      <div class="tag">ВАЖНЫЙ ВОПРОС</div>
+      <div class="sticker" aria-hidden="true">💌</div>
+      <h1 id="headline">Ça te dirait qu’on sorte ensemble ?</h1>
+      <p>У меня есть одна маленькая идея, как сделать наш день чуточку прекраснее…</p>
+      <div class="button-arena" id="arena" aria-label="Ответ на приглашение">
+        <button type="button" class="primary yes" id="yes">Да! 💖</button>
+        <button type="button" class="ghost no" id="no" tabindex="-1">Нет 🙈</button>
+      </div>
+    </section>
+    <section id="when" class="screen" aria-labelledby="when-title">
+      <div class="sticker">🥰</div>
+      <h1 id="when-title">Ура! Я так и знал 💗</h1>
+      <p>Теперь выберем день и время для нашей маленькой истории.</p>
+      <div class="form-block"><label for="date">Когда тебе удобно?</label><input type="date" id="date" required></div>
+      <div class="form-block"><label for="time">Во сколько?</label><input type="time" id="time" value="18:00" required></div>
+      <div id="when-error" class="error" aria-live="polite"></div>
+      <button type="button" class="primary full" id="next">Дальше →</button>
+      <button type="button" class="back" data-back="hello">← Назад</button>
+    </section>
+    <section id="where" class="screen" aria-labelledby="where-title">
+      <div class="sticker">🎀</div>
+      <h1 id="where-title">Куда отправимся на свидание? 💕</h1>
+      <p>Выбирай, что тебе больше по душе. Я за любой вариант, лишь бы вместе!</p>
+      <div class="choices" id="choices">
+        <button class="choice" data-place="Пострелять в тире" type="button"><span>🎯</span> Пострелять в тире</button>
+        <button class="choice" data-place="Сходить в кино" type="button"><span>🎬</span> Сходить в кино</button>
+        <button class="choice" data-place="Погулять по музею" type="button"><span>🖼️</span> Погулять по музею</button>
+        <button class="choice" data-place="Покататься на кораблике" type="button"><span>⛵</span> Покататься на кораблике</button>
+        <button class="choice" data-place="Полепить из глины" type="button"><span>🏺</span> Полепить из глины</button>
+        <button class="choice" data-place="Какао и на ручки" type="button"><span>☕</span> Какао и на ручки 🥹❤️</button>
+      </div>
+      <div id="where-error" class="error" aria-live="polite"></div>
+      <button type="button" class="primary full" id="finish">Это наш план! 💕</button>
+      <button type="button" class="back" data-back="when">← Назад</button>
+    </section>
+    <section id="done" class="screen" aria-labelledby="done-title">
+      <div class="sticker">💞</div>
+      <h1 id="done-title">У нас свидание! ✨</h1>
+      <p>Осталось только отправить мне наш план, чтобы я всё организовал.</p>
+      <div class="summary" id="summary"></div><p id="cocoa-note" style="display:none">Какао с меня, ручки тоже. Обнимашки без ограничений! ❤️</p>
+      <div class="actions"><button type="button" class="primary full" id="share">💌 Отправить план</button><button type="button" class="secondary" id="copy">📋 Скопировать текст</button></div>
+      <p class="notice">Откроется меню отправки iPhone. Выбери Telegram и наш чат.</p>
+      <button type="button" class="back" data-back="where">← Изменить выбор</button>
+    </section>
+  </main>
+  <script>
+    const $ = id => document.getElementById(id);
+    const show = id => { document.querySelectorAll('.screen').forEach(el=>el.classList.toggle('active',el.id===id));window.scrollTo(0,0); };
+    const dateInput=$('date');
+    const localISO=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+    dateInput.min=localISO();
+    const no=$('no'),arena=$('arena');
+    function dodge(e){
+      if(e && e.cancelable && (e.type==='touchstart'||e.type==='pointerdown'))e.preventDefault();
+      const w=arena.clientWidth,h=arena.clientHeight,bw=no.offsetWidth,bh=no.offsetHeight;
+      const yes=$('yes');
+      const margin=8;
+      let positions=[];
+      const yTop=Math.max(0,yes.offsetTop-12),yBottom=yes.offsetTop+yes.offsetHeight+12;
+      for(let x=0;x<=Math.max(0,w-bw);x+=12){
+        for(let y=0;y<=Math.max(0,h-bh);y+=12){
+          const collides= x < yes.offsetLeft+yes.offsetWidth+margin && x+bw > yes.offsetLeft-margin && y < yBottom && y+bh>yTop;
+          if(!collides && Math.hypot(x-no.offsetLeft,y-no.offsetTop)>62)positions.push([x,y]);
+        }
+      }
+      if(!positions.length)return;
+      const [x,y]=positions[Math.floor(Math.random()*positions.length)];
+      no.style.left=x+'px';no.style.top=y+'px';
+    }
+    // Prevent a tap from activating the escaping button on iPhone.
+    if(window.PointerEvent){
+      no.addEventListener('pointerdown',dodge,{passive:false});
+      no.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')dodge(e)});
+    } else {
+      no.addEventListener('touchstart',dodge,{passive:false});
+      no.addEventListener('mouseenter',dodge);
+    }
+    no.addEventListener('click',e=>{e.preventDefault();dodge(e)});
+    $('yes').addEventListener('click',()=>show('when'));
+    document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.back)));
+    $('next').addEventListener('click',()=>{
+      $('when-error').textContent='';
+      if(!dateInput.value||!$('time').value){$('when-error').textContent='Пожалуйста, выбери дату и время 💗';return;}
+      if(dateInput.value<localISO() || (dateInput.value===localISO() && $('time').value <= new Date().toTimeString().slice(0,5))){$('when-error').textContent='Давай выберем время, которое ещё впереди 💗';return;}
+      show('where');
+    });
+    let place='';document.querySelectorAll('.choice').forEach(b=>b.addEventListener('click',()=>{place=b.dataset.place;document.querySelectorAll('.choice').forEach(c=>{c.classList.toggle('selected',c===b);c.setAttribute('aria-pressed',String(c===b));});$('where-error').textContent='';}));
+    const formatDate=()=>new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric'}).format(new Date(dateInput.value+'T12:00:00'));
+    const message=()=>`Ура, я согласна на свидание! 💕\n📅 Дата: ${formatDate()}\n🕒 Время: ${$('time').value}\n✨ План: ${place}\nДо встречи! 🥰`;
+    $('finish').addEventListener('click',()=>{if(!place){$('where-error').textContent='Выбери хотя бы один вариант 💕';return;}$('summary').textContent=`📅 ${formatDate()}\n🕒 ${$('time').value}\n✨ ${place}`;$('summary').style.whiteSpace='pre-line';$('cocoa-note').style.display=place==='Какао и на ручки'?'block':'none';show('done');});
+    const copy=async()=>{try{await navigator.clipboard.writeText(message());$('copy').textContent='✅ Скопировано!';setTimeout(()=>$('copy').textContent='📋 Скопировать текст',2200)}catch{window.prompt('Скопируй этот текст:',message())}};
+    $('copy').addEventListener('click',copy);
+    $('share').addEventListener('click',async()=>{
+      if(navigator.share){try{await navigator.share({title:'Наше свидание 💕',text:message()});return}catch(e){if(e.name==='AbortError')return;}}
+      // Works in Telegram on desktop and in browsers without the system share sheet.
+      const shareURL='https://t.me/share/url?text='+encodeURIComponent(message());
+      window.location.href=shareURL;
+    });
+  </script>
+</body>
+</html>
